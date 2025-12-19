@@ -20,6 +20,15 @@ jobs:
             
             - name: Terraform format check
               run: terraform fmt -check -recursive
+            
+            - name: Installing TFLint
+              run: |
+                wget https://github.com/terraform-linters/tflint/releases/latest/download/tflint_linux_amd64.zip
+                unzip tflint_linux_amd64.zip
+                mv tflint /usr/local/bin/
+            
+            - name: Run TFlint
+              run: tflint
 
             - name: Terraform validate
               run: terraform validate
