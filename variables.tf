@@ -4,6 +4,7 @@
 variable "project_id" {
   description = "VM Project ID"
   type        = string
+  default = "my-project-id"
 }
 
 variable "region" {
