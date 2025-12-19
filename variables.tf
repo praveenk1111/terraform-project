@@ -29,3 +29,5 @@ variable "machine_type" {
   type        = string
   default     = "e2-medium"
 }
+
+#just for test line
