@@ -40,7 +40,7 @@ resource "google_compute_instance" "gcp-vm" {
 
   tags = ["terraform", "gcp-vm"]
 
-  labe = {
+  labels = {
     environment = "dev"
     owner       = "terrafrom"
   }
