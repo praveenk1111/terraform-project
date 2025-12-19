@@ -1,1 +1,25 @@
-#CICD
+name: Terraform syntax Test
+
+on:
+    push:
+        branches: ["dev"]
+    pull_request:
+jobs:
+    terraform-test:
+        runs-on: ubuntu-latest
+
+        container:
+            image: hashicorp/terraform:latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Terraform init (no backend, no cred)
+              run: terraform init -backend=false
+            
+            - name: Terraform format check
+              run: terraform fmt -check -recursive
+
+            - name: Terraform validate
+              run: terraform validate
